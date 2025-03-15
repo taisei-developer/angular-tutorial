@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './child.component.css',
 })
 export class ChildComponent {
+  // 親コンポーネントにデータを送信するためのイベントを設定
   @Output() addItemEvent = new EventEmitter<string>();
 
   // ボタンをクリックしたら、親コンポーネントにデータを送信
