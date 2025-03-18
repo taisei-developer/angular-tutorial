@@ -15,11 +15,12 @@ import { CarService } from './car.service';
 export class AppComponent {
   title = 'angular-tutorial';
   display = '';
-  carService = inject(CarService);
 
   items = new Array();
 
-  constructor() {
+  constructor(
+    private carService: CarService,
+  ) {
     this.display = this.carService.getCars().join('⭐️');
   }
 
