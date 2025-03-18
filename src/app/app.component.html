@@ -1,5 +1,24 @@
-<h1>App Component</h1>
-<app-user occupation="Angular Developer"></app-user>
-<app-child (addItemEvent)="addItem($event)"></app-child>
-<app-form></app-form>
-<p>Count: {{ items.length }}</p>
+<div class="container">
+  <header>
+    <h1>App Component</h1>
+  </header>
+
+  <main>
+    <section class="user-section">
+      <app-user occupation="Angular Developer"></app-user>
+    </section>
+
+    <section class="child-section">
+      <app-child (addItemEvent)="addItem($event)"></app-child>
+    </section>
+
+    <section class="form-section">
+      <app-form></app-form>
+    </section>
+
+    <section class="info-section">
+      <p>Count: {{ items.length }}</p>
+      <p>Car Listing: {{ display }}</p>
+    </section>
+  </main>
+</div>
