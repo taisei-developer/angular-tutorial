@@ -4,11 +4,21 @@ import { UserComponent } from "./user/user.component";
 import { ChildComponent } from "./child/child.component";
 import { FormComponent } from "./form/form.component";
 import { CarService } from './car.service';
+import { LowerCasePipe, DecimalPipe, DatePipe, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserComponent, ChildComponent, FormComponent],
+  imports: [
+    RouterOutlet,
+    UserComponent,
+    ChildComponent,
+    FormComponent,
+    LowerCasePipe,
+    DecimalPipe,
+    DatePipe,
+    CurrencyPipe,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -16,11 +26,17 @@ export class AppComponent {
   title = 'angular-tutorial';
   display = '';
 
+  // パイプ
+  username = 'yOunGTECh';
+
+  // パイプによるデータのフォーマット
+  num = 103.1234;
+  birthday = new Date(2023, 3, 2);
+  cost = 4560.34;
+
   items = new Array();
 
-  constructor(
-    private carService: CarService,
-  ) {
+  constructor(private carService: CarService) {
     this.display = this.carService.getCars().join('⭐️');
   }
 

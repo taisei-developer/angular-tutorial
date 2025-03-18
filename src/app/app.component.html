@@ -20,5 +20,18 @@
       <p>Count: {{ items.length }}</p>
       <p>Car Listing: {{ display }}</p>
     </section>
+
+    <section class="pipe-section">
+      <div>
+        <h2>パイプ</h2>
+        <p>{{ username | lowercase }}</p>
+        <h2>パイプによるデータのフォーマット</h2>
+        <ul>
+          <li>Number with "decimal" {{ num | number:"3.2-2" }}</li>
+          <li>Date with "date" {{ birthday | date : "MM/dd/yyyy" }}</li>
+          <li>Currency with "currency" {{ cost | currency }}</li>
+        </ul>
+      </div>
+    </section>
   </main>
 </div>
