@@ -1,11 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { UserComponent } from "./user/user.component";
-import { ChildComponent } from "./child/child.component";
-import { FormComponent } from "./form/form.component";
+import { UserComponent } from './user/user.component';
+import { ChildComponent } from './child/child.component';
+import { FormComponent } from './form/form.component';
 import { CarService } from './car.service';
-import { LowerCasePipe, DecimalPipe, DatePipe, CurrencyPipe } from '@angular/common';
-
+import {
+  LowerCasePipe,
+  DecimalPipe,
+  DatePipe,
+  CurrencyPipe,
+} from '@angular/common';
+import { ReversePipe } from './reverse.pipe';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,6 +23,7 @@ import { LowerCasePipe, DecimalPipe, DatePipe, CurrencyPipe } from '@angular/com
     DecimalPipe,
     DatePipe,
     CurrencyPipe,
+    ReversePipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -33,6 +39,8 @@ export class AppComponent {
   num = 103.1234;
   birthday = new Date(2023, 3, 2);
   cost = 4560.34;
+
+  word = 'Hello, World!';
 
   items = new Array();
 
