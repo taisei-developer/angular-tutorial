@@ -27,7 +27,7 @@
         <p>{{ username | lowercase }}</p>
         <h2>パイプによるデータのフォーマット</h2>
         <ul>
-          <li>Number with "decimal" {{ num | number:"3.2-2" }}</li>
+          <li>Number with "decimal" {{ num | number : "3.2-2" }}</li>
           <li>Date with "date" {{ birthday | date : "MM/dd/yyyy" }}</li>
           <li>Currency with "currency" {{ cost | currency }}</li>
         </ul>
@@ -35,5 +35,37 @@
         <p>{{ word | reverse }}</p>
       </div>
     </section>
+
+    <section class="if-section">
+      @if (isServiceRunning) {
+      <p>Service is running</p>
+      } @else {
+      <p>Service is not running</p>
+      }
+    </section>
+
+    <section class="for-section">
+      @for (user of users; track user.id) {
+      <p>{{ user.name }}</p>
+      }
+    </section>
+
+    <section class="property-binding-section">
+      <div [contentEditable]="isEditable"></div>
+    </section>
+
+    <section class="event-binding-section" (mouseover)="onMouseOver()">
+      <p>{{ message }}</p>
+    </section>
+
+    <section class="router-section">
+      <nav>
+        <a [routerLink]="['/']">Home</a>
+        |
+        <a [routerLink]="['/user']">User</a>
+      </nav>
+    </section>
+
+    <router-outlet />
   </main>
 </div>

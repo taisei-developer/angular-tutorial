@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { ChildComponent } from './child/child.component';
 import { FormComponent } from './form/form.component';
@@ -11,11 +11,14 @@ import {
   CurrencyPipe,
 } from '@angular/common';
 import { ReversePipe } from './reverse.pipe';
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
+    RouterLink,
     UserComponent,
     ChildComponent,
     FormComponent,
@@ -44,6 +47,18 @@ export class AppComponent {
 
   items = new Array();
 
+  isServiceRunning = false;
+
+  message = '';
+
+  users = [
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' },
+    { id: 3, name: 'Doe' },
+  ];
+
+  isEditable = true;
+
   constructor(private carService: CarService) {
     this.display = this.carService.getCars().join('⭐️');
   }
@@ -52,5 +67,9 @@ export class AppComponent {
   addItem(item: string) {
     console.log('親コンポーネントでデータを受け取りました！', item);
     this.items.push(item);
+  }
+
+  onMouseOver() {
+    this.message = 'マウスオーバーしました';
   }
 }
